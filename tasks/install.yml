@@ -1,0 +1,6 @@
+---
+
+- name: Install thanos from repo
+  apt:
+    name: thanos
+    state: present

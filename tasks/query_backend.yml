@@ -1,0 +1,13 @@
+---
+# Configure the query backend, systemd files, etc
+
+- name: validate that required variables are set
+  assert:
+    that:
+      - '{{ item }} != ""'
+    msg: "{{ item }} must be set"
+  with_items:
+    - s3_bucket_name
+    - s3_endpoint
+    - prometheus_url
+    - prometheus_data_dir

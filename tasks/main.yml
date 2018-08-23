@@ -1,0 +1,7 @@
+---
+
+- name: Installing
+  include: install.yml
+
+- name: Configure query backend
+  include: query_backend.yml
