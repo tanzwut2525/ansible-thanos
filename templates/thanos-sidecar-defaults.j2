@@ -1,6 +1,6 @@
 THANOS_SIDECAR_BUCKET_CONFIG="--s3.bucket={{ thanos_sidecar_s3_bucket_name }} --s3.endpoint={{ thanos_sidecar_s3_endpoint }}"
 THANOS_SIDECAR_PROMETHEUS_LOCATION="--prometheus.url={{ thanos_sidecar_prometheus_url }}"
-THANOS_SIDECAR_DATABASE_CONFIG="--tsdb_path={{ thanos_sidecar_prometheus_data_dir }}"
+THANOS_SIDECAR_DATABASE_CONFIG="--tsdb.path={{ thanos_sidecar_prometheus_data_dir }}"
 THANOS_SIDECAR_LOGGING="--log.level {{ thanos_sidecar_log_level }}"
 
 {% if thanos_sidecar_grpc_port is defined %}
