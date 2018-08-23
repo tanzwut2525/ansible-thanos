@@ -11,4 +11,26 @@
     - thanos_sidecar_prometheus_url
     - thanos_sidecar_prometheus_data_dir
 
+- name: Install thanos sidecar systemd file
+  template:
+    src: thanos-sidecar.j2
+    dest: /etc/systemd/system/thanos-sidecar.service
+  register: sidecar_systemd
+  notify: restart thanos-sidecar
 
+- name: Reload systemd if thanos sidecar changed
+  systemd:
+    daemon_reload: yes
+  when: sidecar_systemd.changed
+
+- name: Add defaults file
+  template:
+    src: thanos-sidecar-defaults.j2
+    dest: /etc/default/thanos-sidecar
+  notify: restart thanos-sidecar
+
+- name: Ensure thanos-sidecar is started
+  service:
+    name: thanos-sidecar
+    enabled: yes
+    state: started
