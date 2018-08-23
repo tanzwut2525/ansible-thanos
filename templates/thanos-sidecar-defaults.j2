@@ -3,20 +3,20 @@ THANOS_SIDECAR_PROMETHEUS_LOCATION="--prometheus.url={{ thanos_sidecar_prometheu
 THANOS_SIDECAR_DATABASE_CONFIG="--tsdb_path={{ thanos_sidecar_prometheus_data_dir }}"
 THANOS_SIDECAR_LOGGING="--log.level {{ thanos_sidecar_log_level }}"
 
-{% if thanos_sidecar_grpc_port %}
+{% if thanos_sidecar_grpc_port is defined %}
 THANOS_SIDECAR_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_sidecar_grpc_port }}"
 {% endif %}
-{% if thanos_sidecar_http_port %}
+{% if thanos_sidecar_http_port is defined %}
 THANOS_SIDECAR_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_sidecar_http_port }}"
 {% endif %}
-{% if thanos_sidecar_cluster_port %}
+{% if thanos_sidecar_cluster_port is defined %}
 THANOS_SIDECAR_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_sidecar_cluster_port }}"
 {% endif %}
-{% if thanos_sidecar_cluster_peers_addr %}
+{% if thanos_sidecar_cluster_peers_addr is defined %}
 THANOS_SIDECAR_CLUSTER_PEERS="--cluster.peers {{ thanos_sidecar_cluster_peers_addr }}"
 {% endif %}
 
-{% if thanos_sidecar_reloader_config and thanos_sidecar_reloader_envfile %}
+{% if thanos_sidecar_reloader_config is defined and thanos_sidecar_reloader_envfile is defined %}
 THANOS_SIDECAR_RELOADER_CONFIG="--reloader.config-file={{ prometheus_config_file }}"
 THANOS_SIDECAR_RELOADER_ENVFILE="--reloader.config-envsubst-file={{ thanos_envsubst_file }}"
 {% endif %}
