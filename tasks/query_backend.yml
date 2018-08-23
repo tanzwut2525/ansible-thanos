@@ -21,7 +21,6 @@
 - name: Reload systemd if thanos sidecar changed
   systemd:
     daemon_reload: yes
-  when: sidecar_systemd.changed
 
 - name: Add defaults file
   template:
