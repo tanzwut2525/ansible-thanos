@@ -1,15 +1,14 @@
 ---
 
-thanos_log_level: "debug"
+thanos_sidecar_log_level: "debug"
 thanos_sidecar_grpc_port: 19091
 thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
 thanos_sidecar_cluster_peers_addr: ""
 
-prometheus_url: http://localhost:9090
-prometheus_data_dir: /etc/prometheus/data
-
-s3_bucket_name: ""
-s3_endpoint: ""
+thanos_sidecar_prometheus_url: http://localhost:9090
+thanos_sidecar_prometheus_data_dir: /etc/prometheus/data
+thanos_sidecar_s3_bucket_name: ""
+thanos_sidecar_s3_endpoint: ""
 
 
