@@ -1,0 +1,6 @@
+---
+
+- name: restart thanos-sidecar
+  service:
+    name: thanos-sidecar
+    state: restarted
