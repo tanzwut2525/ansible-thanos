@@ -5,6 +5,8 @@
 
 - name: Configure store backend
   include: store_backend.yml
+  when: thanos_sidecar_enabled is defined and thanos_query_enabled == True
 
 - name: Configure query backend
   include: query_backend.yml
+  when: thanos_query_enabled is defined and thanos_query_enabled == True
