@@ -1,4 +1,7 @@
 # ansible-thanos
+
+![image](https://user-images.githubusercontent.com/1196058/44577196-5cda4780-a788-11e8-956c-b045aa5f6ee5.png)
+
 [Thanos is a highly-available metrics system](https://github.com/improbable-eng/thanos) that touts 'unlimited' storage capacity. This role is able to configure a Thanos Sidecar (uploading metrics), Thanos Query (for querying)
 
 ## Defaults
