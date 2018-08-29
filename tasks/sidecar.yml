@@ -1,34 +1,22 @@
 ---
-# Configure the query backend, systemd files, etc
-- name: validate that required variables are set
-  assert:
-    that:
-      - '{{ item }} != ""'
-    msg: "{{ item }} must be set"
-  with_items:
-    - thanos_sidecar_s3_bucket_name
-    - thanos_sidecar_s3_endpoint
-    - thanos_sidecar_prometheus_url
-    - thanos_sidecar_prometheus_data_dir
-
-- name: Install thanos sidecar systemd file
+- name: "Sidecar: Install thanos sidecar systemd file"
   template:
     src: thanos-sidecar.j2
     dest: /etc/systemd/system/thanos-sidecar.service
   register: sidecar_systemd
   notify: restart thanos-sidecar
 
-- name: Reload systemd if thanos sidecar changed
+- name: "Sidecar: Reload systemd if thanos sidecar changed"
   systemd:
     daemon_reload: yes
 
-- name: Add defaults file
+- name: "Sidecar: Add defaults file"
   template:
     src: thanos-sidecar-defaults.j2
     dest: /etc/default/thanos-sidecar
   notify: restart thanos-sidecar
 
-- name: Ensure thanos-sidecar is started
+- name: "Sidecar: Ensure thanos-sidecar is started"
   service:
     name: thanos-sidecar
     enabled: yes

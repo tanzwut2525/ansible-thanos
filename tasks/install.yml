@@ -4,3 +4,30 @@
   apt:
     name: thanos
     state: present
+
+# Configure the query backend, systemd files, etc
+- name: validate that required variables are set
+  assert:
+    that:
+      - '{{ item }} != ""'
+    msg: "{{ item }} must be set"
+  with_items:
+    - thanos_s3_bucket_name
+    - thanos_s3_endpoint
+    - thanos_prometheus_url
+    - thanos_prometheus_data_dir
+
+- name: create prometheus system group
+  group:
+    name: prometheus
+    system: true
+    state: present
+
+- name: create prometheus system user
+  user:
+    name: prometheus
+    system: true
+    shell: "/sbin/falselogin"
+    group: prometheus
+    createhome: false
+

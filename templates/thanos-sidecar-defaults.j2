@@ -12,8 +12,8 @@ THANOS_SIDECAR_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_sidecar_http_port 
 {% if thanos_sidecar_cluster_port is defined %}
 THANOS_SIDECAR_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_sidecar_cluster_port }}"
 {% endif %}
-{% if thanos_sidecar_cluster_peers_addr is defined %}
-THANOS_SIDECAR_CLUSTER_PEERS="--cluster.peers {{ thanos_sidecar_cluster_peers_addr }}"
+{% if thanos_cluster_peers_addr is defined %}
+THANOS_SIDECAR_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
 {% if thanos_sidecar_reloader_config is defined and thanos_sidecar_reloader_envfile is defined %}

@@ -8,5 +8,5 @@
   when: thanos_sidecar_enabled is defined and thanos_sidecar_enabled == True
 
 - name: Configure query backend
-  include: query_backend.yml
+  include: query.yml
   when: thanos_query_enabled is defined and thanos_query_enabled == True

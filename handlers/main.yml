@@ -4,3 +4,8 @@
   service:
     name: thanos-sidecar
     state: restarted
+
+- name: restart thanos-query
+  service:
+    name: thanos-query
+    state: restarted
