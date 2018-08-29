@@ -4,12 +4,25 @@ thanos_sidecar_log_level: "debug"
 thanos_sidecar_grpc_port: 19091
 thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
-thanos_sidecar_cluster_peers_addr: ""
 
-thanos_sidecar_prometheus_url: http://localhost:9090
-thanos_sidecar_prometheus_data_dir: /etc/prometheus/data
-thanos_sidecar_s3_bucket_name: ""
-thanos_sidecar_s3_endpoint: ""
+thanos_compactor_log_level: "debug"
+thanos_compactor_http_port: 19192
+
+thanos_query_log_level: "debug"
+thanos_query_grpc_port: 19091
+thanos_query_http_port: 19193
+thanos_query_cluster_port: 19391
+
+thanos_store_log_level: "debug"
+thanos_store_grpc_port: 19091
+thanos_store_http_port: 19194
+thanos_store_cluster_port: 19391
+
+thanos_cluster_peers_addr: ""
+thanos_prometheus_url: http://localhost:9090
+thanos_prometheus_data_dir: /etc/prometheus/data
+thanos_s3_bucket_name: ""
+thanos_s3_endpoint: ""
 
 thanos_sidecar_enabled: true
 thanos_query_enabled: false
