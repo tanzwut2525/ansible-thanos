@@ -1,0 +1,25 @@
+THANOS_QUERY_BUCKET_CONFIG="--s3.bucket={{ thanos_s3_bucket_name }} --s3.endpoint={{ thanos_s3_endpoint }}"
+THANOS_QUERY_PROMETHEUS_LOCATION="--prometheus.url={{ thanos_prometheus_url }}"
+THANOS_QUERY_LOGGING="--log.level {{ thanos_query_log_level }}"
+
+{% if thanos_query_grpc_port is defined %}
+THANOS_QUERY_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_query_grpc_port }}"
+{% endif %}
+{% if thanos_query_http_port is defined %}
+THANOS_QUERY_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_query_http_port }}"
+{% endif %}
+{% if thanos_query_cluster_port is defined %}
+THANOS_QUERY_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_query_cluster_port }}"
+{% endif %}
+{% if thanos_query_cluster_peers_addr is defined %}
+THANOS_QUERY_CLUSTER_PEERS="--cluster.peers {{ thanos_query_cluster_peers_addr }}"
+{% endif %}
+
+{% if thanos_query_replica_label is defined %}
+THANOS_QUERY_REPLICA_LABEL="--query.replica-label {{ thanos_query_replica_label }}"
+{% endif %}
+
+{% if thanos_query_reloader_config is defined and thanos_query_reloader_envfile is defined %}
+THANOS_QUERY_RELOADER_CONFIG="--reloader.config-file={{ prometheus_config_file }}"
+THANOS_QUERY_RELOADER_ENVFILE="--reloader.config-envsubst-file={{ thanos_envsubst_file }}"
+{% endif %}
