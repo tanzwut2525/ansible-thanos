@@ -14,7 +14,7 @@
   template:
     src: thanos-query-defaults.j2
     dest: /etc/default/thanos-query
-  notify: restart thanos-sidecar
+  notify: restart thanos-query
 
 - name: "Query: Ensure thanos-query is started"
   service:
