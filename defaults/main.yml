@@ -24,5 +24,5 @@ thanos_prometheus_data_dir: /etc/prometheus/data
 thanos_s3_bucket_name: ""
 thanos_s3_endpoint: ""
 
-thanos_sidecar_enabled: true
-thanos_query_enabled: false
+thanos_sidecar_enabled: True
+thanos_query_enabled: False
