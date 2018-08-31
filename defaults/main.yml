@@ -31,3 +31,5 @@ thanos_s3_endpoint: ""
 
 thanos_sidecar_enabled: True
 thanos_query_enabled: False
+thanos_compactor_enabled: False
+thanos_store_enabled: False

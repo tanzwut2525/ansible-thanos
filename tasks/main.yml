@@ -14,3 +14,7 @@
 - name: Configure compactor backend
   include: compact.yml
   when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
+
+- name: Configure store backend
+  include: store.yml
+  when: thanos_store_enabled is defined and thanos_store_enabled == True
