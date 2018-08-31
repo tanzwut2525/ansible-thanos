@@ -1,0 +1,23 @@
+---
+- name: "Store: Install thanos store systemd file"
+  template:
+    src: thanos-store.j2
+    dest: /etc/systemd/system/thanos-store.service
+  register: store_systemd
+  notify: restart thanos-store
+
+- name: "Store: Reload systemd if thanos store changed"
+  systemd:
+    daemon_reload: yes
+
+- name: "Store: Add defaults file"
+  template:
+    src: thanos-store-defaults.j2
+    dest: /etc/default/thanos-store
+  notify: restart thanos-store
+
+- name: "Store: Ensure thanos-store is started"
+  service:
+    name: thanos-store
+    enabled: yes
+    state: started
