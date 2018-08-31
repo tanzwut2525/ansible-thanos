@@ -1,0 +1,23 @@
+---
+- name: "Sidecar: Install thanos sidecar systemd file"
+  template:
+    src: thanos-sidecar.j2
+    dest: /etc/systemd/system/thanos-sidecar.service
+  register: sidecar_systemd
+  notify: restart thanos-sidecar
+
+- name: "Sidecar: Reload systemd if thanos sidecar changed"
+  systemd:
+    daemon_reload: yes
+
+- name: "Sidecar: Add defaults file"
+  template:
+    src: thanos-sidecar-defaults.j2
+    dest: /etc/default/thanos-sidecar
+  notify: restart thanos-sidecar
+
+- name: "Sidecar: Ensure thanos-sidecar is started"
+  service:
+    name: thanos-sidecar
+    enabled: yes
+    state: started

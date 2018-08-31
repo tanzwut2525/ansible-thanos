@@ -4,3 +4,10 @@
   service:
     name: thanos-sidecar
     state: restarted
+  when: thanos_sidecar_enabled is defined and thanos_sidecar_enabled == True
+
+- name: restart thanos-query
+  service:
+    name: thanos-query
+    state: restarted
+  when: thanos_query_enabled is defined and thanos_query_enabled == True

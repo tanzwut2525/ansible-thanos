@@ -1,0 +1,18 @@
+THANOS_QUERY_LOGGING="--log.level {{ thanos_query_log_level }}"
+
+{% if thanos_query_grpc_port is defined %}
+THANOS_QUERY_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_query_grpc_port }}"
+{% endif %}
+{% if thanos_query_http_port is defined %}
+THANOS_QUERY_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_query_http_port }}"
+{% endif %}
+{% if thanos_query_cluster_port is defined %}
+THANOS_QUERY_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_query_cluster_port }}"
+{% endif %}
+{% if thanos_cluster_peers_addr is defined %}
+THANOS_QUERY_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
+{% endif %}
+
+{% if thanos_query_replica_label is defined %}
+THANOS_QUERY_REPLICA_LABEL="--query.replica-label {{ thanos_query_replica_label }}"
+{% endif %}
