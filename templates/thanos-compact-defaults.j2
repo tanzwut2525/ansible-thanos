@@ -1,0 +1,4 @@
+THANOS_COMPACT_BUCKET_CONFIG="--s3.bucket {{ thanos_s3_bucket_name }} --s3.endpoint {{ thanos_s3_endpoint }}"
+THANOS_COMPACT_HTTP="--http-address 0.0.0.0:{{ thanos_compactor_http_port }}"
+THANOS_COMPACT_LOGGING="--log.level {{ thanos_compactor_log_level }}"
+THANOS_COMPACT_DATA_DIR=--data-dir {{ thanos_compactor_data_dir }}"

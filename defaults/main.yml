@@ -7,6 +7,11 @@ thanos_sidecar_cluster_port: 19391
 
 thanos_compactor_log_level: "debug"
 thanos_compactor_http_port: 19192
+# Run 3 minutes after boot
+thanos_compactor_onboot_sec: 3m
+# Run every 1 hour
+thanos_compactor_onactive_sec: 1h
+thanos_compactor_data_dir: ""
 
 thanos_query_log_level: "debug"
 thanos_query_grpc_port: 19091

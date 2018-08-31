@@ -10,3 +10,7 @@
 - name: Configure query backend
   include: query.yml
   when: thanos_query_enabled is defined and thanos_query_enabled == True
+
+- name: Configure compactor backend
+  include: compact.yml
+  when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
