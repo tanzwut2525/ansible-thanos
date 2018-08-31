@@ -1,0 +1,34 @@
+---
+- name: "Compact: Install thanos compact systemd file"
+  template:
+    src: thanos-compact.j2
+    dest: /etc/systemd/system/thanos-compact.service
+  register: compact_systemd
+  notify: restart thanos-compact
+
+- name: "Compact: Install thanos compact timer file"
+  template:
+    src: thanos-compact-timer.j2
+    dest: /etc/systemd/system/thanos-compact.timer
+  notify: 
+    - restart thanos-compact
+    - restart thanos-compact timer
+
+- name: "Compact: Reload systemd if thanos compact changed"
+  systemd:
+    daemon_reload: yes
+
+- name: "Compact: Add defaults file"
+  template:
+    src: thanos-compact-defaults.j2
+    dest: /etc/default/thanos-compact
+  notify: restart thanos-compact
+
+- name: "Compact: Ensure thanos-compact is started"
+  service:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  with_items:
+    - thanos-compact
+    - thanos-compact.timer
