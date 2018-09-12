@@ -22,6 +22,8 @@ thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
 thanos_store_http_port: 19194
 thanos_store_cluster_port: 19391
+thanos_store_index_cache_size: "250MB"
+thanos_store_chunk_pool_size: "2GB"
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090
@@ -31,3 +33,5 @@ thanos_s3_endpoint: ""
 
 thanos_sidecar_enabled: True
 thanos_query_enabled: False
+thanos_compactor_enabled: False
+thanos_store_enabled: False

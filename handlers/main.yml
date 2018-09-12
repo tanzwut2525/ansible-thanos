@@ -24,4 +24,10 @@
     daemon-reload: yes
     state: restarted
     enabled: true
+  when: thanos_compactor_enabled is defined and thanos_query_enabled == True
 
+- name: restart thanos-store
+  service:
+    name: thanos-store
+    state: restarted
+  when: thanos_store_enabled is defined and thanos_query_enabled == True
