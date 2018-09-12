@@ -1,0 +1,18 @@
+THANOS_STORE_BUCKET_CONFIG="--s3.bucket={{ thanos_s3_bucket_name }} --s3.endpoint={{ thanos_s3_endpoint }}"
+THANOS_STORE_DATA_DIR="--tsdb.path={{ thanos_store_data_dir }}"
+THANOS_STORE_LOGGING="--log.level {{ thanos_store_log_level }}"
+
+{% if thanos_store_grpc_port is defined %}
+THANOS_STORE_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_store_grpc_port }}"
+{% endif %}
+{% if thanos_store_http_port is defined %}
+THANOS_STORE_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_store_http_port }}"
+{% endif %}
+{% if thanos_store_cluster_port is defined %}
+THANOS_STORE_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_store_cluster_port }}"
+{% endif %}
+{% if thanos_cluster_peers_addr is defined %}
+THANOS_STORE_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
+{% endif %}
+
+THANOS_STORE_ADDITIONAL_CONFIGS="--index-cache-size {{ thanos_store_index_cache_size }} --chunk-pool-size {{ thanos_store_chunk_pool_size }}"
