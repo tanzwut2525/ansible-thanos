@@ -6,14 +6,6 @@
   register: compact_systemd
   notify: restart thanos-compact
 
-- name: "Compact: Install thanos compact timer file"
-  template:
-    src: thanos-compact-timer.j2
-    dest: /etc/systemd/system/thanos-compact.timer
-  notify: 
-    - restart thanos-compact
-    - restart thanos-compact timer
-
 - name: "Compact: Reload systemd if thanos compact changed"
   systemd:
     daemon_reload: yes
@@ -26,9 +18,6 @@
 
 - name: "Compact: Ensure thanos-compact is started"
   service:
-    name: "{{ item }}"
+    name: thanos-compact
     enabled: yes
     state: started
-  with_items:
-    - thanos-compact
-    - thanos-compact.timer
