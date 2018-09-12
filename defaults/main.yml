@@ -30,6 +30,7 @@ thanos_prometheus_url: http://localhost:9090
 thanos_prometheus_data_dir: /etc/prometheus/data
 thanos_s3_bucket_name: ""
 thanos_s3_endpoint: ""
+thanos_default_retention_period: "90d"
 
 thanos_sidecar_enabled: True
 thanos_query_enabled: False

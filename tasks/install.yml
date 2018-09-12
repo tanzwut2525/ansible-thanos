@@ -3,7 +3,7 @@
 - name: Install thanos from repo
   apt:
     name: thanos
-    state: present
+    state: latest
 
 # Configure the query backend, systemd files, etc
 - name: validate that required variables are set
