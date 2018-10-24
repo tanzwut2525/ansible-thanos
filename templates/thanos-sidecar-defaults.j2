@@ -18,7 +18,8 @@ THANOS_SIDECAR_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_sidecar_clus
 THANOS_SIDECAR_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
-{% if thanos_prometheus_template_file is defined and thanos_prometheus_envsubst_file is defined %}
+{% if thanos_prometheus_template_file is defined and thanos_prometheus_envsubst_file is defined and thanos_prometheus_rule_dir is defined %}
 THANOS_SIDECAR_RELOADER_CONFIG="--reloader.config-file={{ thanos_prometheus_template_file }}"
 THANOS_SIDECAR_RELOADER_ENVFILE="--reloader.config-envsubst-file={{ thanos_prometheus_envsubst_file }}"
+THANOS_SIDECAR_RELOADER_RULEDIR="--reloader.rule-dir={{ thanos_prometheus_rule_dir }}"
 {% endif %}
