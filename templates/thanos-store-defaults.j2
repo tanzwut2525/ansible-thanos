@@ -1,5 +1,5 @@
 THANOS_STORE_BUCKET_CONFIG="--s3.bucket={{ thanos_s3_bucket_name }} --s3.endpoint={{ thanos_s3_endpoint }}"
-THANOS_STORE_DATA_DIR="--tsdb.path={{ thanos_store_data_dir }}"
+THANOS_STORE_DATA_DIR="--data-dir={{ thanos_store_data_dir }}"
 THANOS_STORE_LOGGING="--log.level {{ thanos_store_log_level }}"
 
 {% if thanos_store_grpc_port is defined %}
