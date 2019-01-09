@@ -20,6 +20,7 @@
   template:
     src: thanos-store-config.j2
     dest: "{{ thanos_store_config_file }}"
+  notify: restart thanos-store
 
 - name: "Store: Ensure thanos-store is started"
   service:
