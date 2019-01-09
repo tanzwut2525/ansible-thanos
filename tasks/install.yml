@@ -22,12 +22,3 @@
     name: prometheus
     system: true
     state: present
-
-- name: create prometheus system user
-  user:
-    name: prometheus
-    system: true
-    shell: "/sbin/nologin"
-    group: prometheus
-    createhome: false
-    home: /tmp
