@@ -1,6 +1,6 @@
-THANOS_STORE_BUCKET_CONFIG="--s3.bucket={{ thanos_s3_bucket_name }} --s3.endpoint={{ thanos_s3_endpoint }}"
 THANOS_STORE_DATA_DIR="--data-dir={{ thanos_store_data_dir }}"
 THANOS_STORE_LOGGING="--log.level {{ thanos_store_log_level }}"
+THANOS_STORE_CONFIG_FILE="--objstore.config-file {{ thanos_store_config_file }}"
 
 {% if thanos_store_grpc_port is defined %}
 THANOS_STORE_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_store_grpc_port }}"
