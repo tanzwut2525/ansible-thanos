@@ -16,6 +16,11 @@
     dest: /etc/default/thanos-store
   notify: restart thanos-store
 
+- name: "Store: generate configuration file"
+  template:
+    src: thanos-store-config.j2
+    dest: "{{ thanos_store_config_file }}"
+
 - name: "Store: Ensure thanos-store is started"
   service:
     name: thanos-store
