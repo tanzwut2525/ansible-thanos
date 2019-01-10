@@ -4,6 +4,7 @@
   apt:
     name: thanos
     state: latest
+    cache_valid_time: 3600
 
 # Configure the query backend, systemd files, etc
 - name: validate that required variables are set
@@ -22,12 +23,3 @@
     name: prometheus
     system: true
     state: present
-
-- name: create prometheus system user
-  user:
-    name: prometheus
-    system: true
-    shell: "/sbin/nologin"
-    group: prometheus
-    createhome: false
-    home: /tmp

@@ -20,6 +20,7 @@ thanos_store_http_port: 19194
 thanos_store_cluster_port: 19391
 thanos_store_index_cache_size: "250MB"
 thanos_store_chunk_pool_size: "2GB"
+thanos_store_config_file: "/etc/thanos-store.yaml"
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090
