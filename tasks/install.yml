@@ -4,7 +4,7 @@
   apt:
     name: thanos
     state: latest
-    update_cache: yes
+    cache_valid_time: 3600
 
 # Configure the query backend, systemd files, etc
 - name: validate that required variables are set
