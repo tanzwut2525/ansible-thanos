@@ -14,7 +14,7 @@
   template:
     src: thanos-compactor-defaults.j2
     dest: /etc/default/thanos-compactor
-  notify: restart thanos-compact
+  notify: restart thanos-compactor
 
 - name: "Compactor: generate configuration file"
   template:
