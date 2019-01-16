@@ -10,12 +10,12 @@
     name: thanos-query
     state: restarted
 
-- name: restart thanos-compact
+- name: restart thanos-compactor
   service:
     name: thanos-compactor
     state: restarted
 
-- name: restart thanos-compact timer
+- name: restart thanos-compactor timer
   systemd:
     name: thanos-compactor.timer
     daemon-reload: yes
