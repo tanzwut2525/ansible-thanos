@@ -1,5 +1,15 @@
 # Change Log
 
+## [v1.1.0](https://github.com/transferwise/ansible-thanos/tree/v1.1.0) (2019-01-16)
+[Full Changelog](https://github.com/transferwise/ansible-thanos/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Compactor fix for migration to thanos v2 [\#13](https://github.com/transferwise/ansible-thanos/pull/13) ([jalev](https://github.com/jalev))
+
+## [v1.0.0](https://github.com/transferwise/ansible-thanos/tree/v1.0.0) (2019-01-10)
+[Full Changelog](https://github.com/transferwise/ansible-thanos/compare/v1.0...v1.0.0)
+
 ## [v1.0](https://github.com/transferwise/ansible-thanos/tree/v1.0) (2019-01-10)
 **Implemented enhancements:**
 
