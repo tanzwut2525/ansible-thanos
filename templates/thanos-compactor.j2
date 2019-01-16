@@ -1,5 +1,5 @@
 [Unit]
-Description=Thanos Compact
+Description=Thanos Compactor
 
 [Service]
 Type=simple
@@ -7,9 +7,9 @@ Type=simple
 User=prometheus
 Group=prometheus
 
-EnvironmentFile=/etc/default/thanos-compact
+EnvironmentFile=/etc/default/thanos-compactor
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=thanos-compact
-ExecStart=/usr/bin/thanos compact $THANOS_COMPACT_BUCKET_CONFIG $THANOS_COMPACT_HTTP $THANOS_COMPACT_LOGGING $THANOS_COMPACT_DATA_DIR $THANOS_COMPACT_RETENTION --wait
+SyslogIdentifier=thanos-compactor
+ExecStart=/usr/bin/thanos compact $THANOS_COMPACT_CONFIG_FILE $THANOS_COMPACT_HTTP $THANOS_COMPACT_LOGGING $THANOS_COMPACT_DATA_DIR $THANOS_COMPACT_RETENTION --wait
 Restart=always
