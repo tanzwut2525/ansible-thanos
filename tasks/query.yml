@@ -8,7 +8,7 @@
 
 - name: "Query: Reload systemd if thanos query changed"
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
 
 - name: "Query: Add defaults file"
   template:
@@ -19,5 +19,5 @@
 - name: "Query: Ensure thanos-query is started"
   service:
     name: thanos-query
-    enabled: yes
+    enabled: true
     state: started

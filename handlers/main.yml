@@ -18,7 +18,7 @@
 - name: restart thanos-compactor timer
   systemd:
     name: thanos-compactor.timer
-    daemon-reload: yes
+    daemon-reload: true
     state: restarted
     enabled: true
 

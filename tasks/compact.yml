@@ -8,7 +8,7 @@
 
 - name: "Compactor: Reload systemd if thanos compact changed"
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
 
 - name: "Compactor: Add defaults file"
   template:
@@ -25,5 +25,5 @@
 - name: "Compactor: Ensure thanos-compactor is started"
   service:
     name: thanos-compactor
-    enabled: yes
+    enabled: true
     state: started
