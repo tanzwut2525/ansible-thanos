@@ -8,7 +8,7 @@
 
 - name: "Sidecar: Reload systemd if thanos sidecar changed"
   systemd:
-    daemon_reload: yes
+    daemon_reload: true
 
 - name: "Sidecar: Add defaults file"
   template:
@@ -25,5 +25,5 @@
 - name: "Sidecar: Ensure thanos-sidecar is started"
   service:
     name: thanos-sidecar
-    enabled: yes
+    enabled: true
     state: started
