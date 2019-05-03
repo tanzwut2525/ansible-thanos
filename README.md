@@ -11,6 +11,7 @@ thanos_sidecar_grpc_port: 19091
 thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
 thanos_sidecar_config_file: "/etc/thanos-sidecar.yaml"
+thanos_sidecar_cluster_disabled: False
 
 thanos_compactor_log_level: "debug"
 thanos_compactor_http_port: 19192
@@ -29,6 +30,7 @@ thanos_query_log_level: "debug"
 thanos_query_grpc_port: 19091
 thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
+thanos_query_cluster_disabled: False
 
 thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
@@ -37,6 +39,7 @@ thanos_store_cluster_port: 19391
 thanos_store_index_cache_size: "250MB"
 thanos_store_chunk_pool_size: "2GB"
 thanos_store_config_file: "/etc/thanos-store.yaml"
+thanos_store_cluster_disabled: False
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090
@@ -56,6 +59,7 @@ thanos_store_enabled: False
 - `thanos_sidecar_http_port` defines the HTTP port for the thanos sidecar cluster metrics.
 - `thanos_sidecar_cluster_port` defines the port which the cluster will communicate over.
 - `thanos_sidecar_config_file` defines where the bucket configuration file will sit. Defaults to `/etc/thanos-sidecar.yaml`.
+- `thanos_sidecar_cluster_disabled` disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`.
 - `thanos_compactor_log_level` defines the log level that Thanos will run. Set to 'debug' by default.
 - `thanos_compactor_http_port` defines the HTTP port for the thanos compactor cluster metrics.
 - `thanos_compactor_data_dir` defines the data directory where Thanos compactor will store temporary files.
@@ -67,6 +71,7 @@ thanos_store_enabled: False
 - `thanos_query_grpc_port` defines the GRPC port for the thanos query cluster to communicate over
 - `thanos_query_http_port` defines the HTTP port for the thanos query cluster metrics
 - `thanos_query_cluster_port` defines the port which the cluster will communicate over
+- `thanos_query_cluster_disabled` disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. 
 - `thanos_store_log_level` defines the log level that Thanos will run. Set to 'debug' by default.
 - `thanos_store_grpc_port` defines the GRPC port for the thanos sidecar cluster to communicate over
 - `thanos_store_http_port` defines the HTTP port for the thanos sidecar cluster metrics
@@ -74,6 +79,7 @@ thanos_store_enabled: False
 - `thanos_store_index_cache_size` defines the maximum size of items held in the index cache
 - `thanos_store_chunk_pool_size` defines the maximum size of concurrently allocatable bytes for chunks
 - `thanos_store_config_file` defines where the bucket configuration file will sit. Defaults to `/etc/thanos-store.yaml`.
+- `thanos_store_cluster_disabled` disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`.
 - `thanos_cluster_peers_addr` defines either a static list of IPs or a DNS name that will be used find other sidecars
 - `thanos_prometheus_url` defines the URL that Thanos will use to pull metrics from
 - `thanos_prometheus_data_dir` defines the data directory that Thanos will upload Prometheus blocks from.
