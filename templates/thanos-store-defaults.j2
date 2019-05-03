@@ -9,7 +9,7 @@ THANOS_STORE_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_store_grpc_port }}"
 THANOS_STORE_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_store_http_port }}"
 {% endif %}
 
-{% thanos_store_cluster_disabled and thanos_store_cluster_disabled == True %}
+{% if thanos_store_cluster_disabled is defined and thanos_store_cluster_disabled == True %}
 
 THANOS_STORE_CLUSTER_DISABLED="--cluster.disable"
 
