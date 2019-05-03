@@ -12,7 +12,7 @@ THANOS_SIDECAR_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_sidecar_grpc_port 
 THANOS_SIDECAR_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_sidecar_http_port }}"
 {% endif %}
 
-{% thanos_sidecar_cluster_disabled and thanos_sidecar_cluster_disabled == True %}
+{% if thanos_sidecar_cluster_disabled is defined and thanos_sidecar_cluster_disabled == True %}
 
 THANOS_SIDECAR_CLUSTER_DISABLED="--cluster.disable"
 

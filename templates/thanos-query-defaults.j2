@@ -7,7 +7,7 @@ THANOS_QUERY_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_query_grpc_port }}"
 THANOS_QUERY_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_query_http_port }}"
 {% endif %}
 
-{% thanos_query_cluster_disabled and thanos_query_cluster_disabled == True %}
+{% if thanos_query_cluster_disabled is defined and thanos_query_cluster_disabled == True %}
 
 THANOS_QUERY_CLUSTER_DISABLED="--cluster.disable"
 
