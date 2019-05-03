@@ -31,6 +31,7 @@ thanos_query_grpc_port: 19091
 thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
 thanos_query_cluster_disabled: False
+thanos_query_stores: []
 
 thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
@@ -71,7 +72,8 @@ thanos_store_enabled: False
 - `thanos_query_grpc_port` defines the GRPC port for the thanos query cluster to communicate over
 - `thanos_query_http_port` defines the HTTP port for the thanos query cluster metrics
 - `thanos_query_cluster_port` defines the port which the cluster will communicate over
-- `thanos_query_cluster_disabled` disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. 
+- `thanos_query_cluster_disabled` disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`.
+- `thanos_query_stores` List of Thanos store API endpoints used by the Thanos Query component
 - `thanos_store_log_level` defines the log level that Thanos will run. Set to 'debug' by default.
 - `thanos_store_grpc_port` defines the GRPC port for the thanos sidecar cluster to communicate over
 - `thanos_store_http_port` defines the HTTP port for the thanos sidecar cluster metrics

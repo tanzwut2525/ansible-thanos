@@ -25,6 +25,7 @@ thanos_query_grpc_port: 19091
 thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
 thanos_query_cluster_disabled: False
+thanos_query_stores: []
 
 thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
