@@ -12,7 +12,7 @@ THANOS_QUERY_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_query_http_port }}"
 THANOS_QUERY_CLUSTER_DISABLED="--cluster.disable"
 
 {% else %}
-
+THANOS_QUERY_CLUSTER_DISABLED="--no-cluster.disable"
 {% if thanos_query_cluster_port is defined %}
 THANOS_QUERY_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_query_cluster_port }}"
 {% endif %}
