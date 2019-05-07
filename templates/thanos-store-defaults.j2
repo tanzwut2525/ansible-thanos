@@ -14,7 +14,7 @@ THANOS_STORE_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_store_http_port }}"
 THANOS_STORE_CLUSTER_DISABLED="--cluster.disable"
 
 {% else %}
-
+THANOS_STORE_CLUSTER_DISABLED="--no-cluster.disable"
 {% if thanos_store_cluster_port is defined %}
 THANOS_STORE_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_store_cluster_port }}"
 {% endif %}
