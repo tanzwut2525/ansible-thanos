@@ -25,3 +25,12 @@ THANOS_STORE_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
 THANOS_STORE_ADDITIONAL_CONFIGS="--index-cache-size {{ thanos_store_index_cache_size }} --chunk-pool-size {{ thanos_store_chunk_pool_size }}"
+
+{% if thanos_store_series_sample_limit is defined %}
+THANOS_STORE_SAMPLE_LIMIT="--store.grpc.series-sample-limit {{ thanos_store_series_sample_limit  }}"
+{% endif %}
+
+{% if thanos_store_series_max_concurrency is defined %}
+THANOS_STORE_CONCURRENCY_LIMIT="--store.grpc.series-max-concurrency {{ thanos_store_series_max_concurrency }}"
+{% endif %}
+

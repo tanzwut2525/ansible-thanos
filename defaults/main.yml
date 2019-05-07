@@ -35,6 +35,9 @@ thanos_store_index_cache_size: "250MB"
 thanos_store_chunk_pool_size: "2GB"
 thanos_store_config_file: "/etc/thanos-store.yaml"
 thanos_store_cluster_disabled: False
+# 0 == off
+thanos_store_series_sample_limit: 0
+thanos_store_series_max_concurrency: 20
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090
