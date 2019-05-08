@@ -9,7 +9,7 @@
 - Thanos Store (for S3/etc)
 - Thanos Compact (for compaction)
 
-The role also has the requirement that you **create a debian package** for [Thanos](https://github.com/improbable-eng/thanos). This is not going to change and is not in the scope of this repo.
+The role also has the requirement that you **create a debian package** for [Thanos](https://github.com/improbable-eng/thanos). This is not going to change and is not in the scope of this repo. If you don't have a system for this, we recommend [FPM](https://github.com/jordansissel/fpm/) for getting something simple up and running quickly.
 
 In future we will implement the following Thanos components:
 
