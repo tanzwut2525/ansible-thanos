@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/1196058/44577196-5cda4780-a788-11e8-956c-b045aa5f6ee5.png)
 
-[Thanos is a highly-available metrics system](https://github.com/improbable-eng/thanos) that touts 'unlimited' storage capacity. This role is able to configure the following components on **Debian systems specifically AWS**:
+[Thanos is a highly-available metrics system](https://github.com/improbable-eng/thanos) that touts 'unlimited' storage capacity. This role is able to configure the following components on **Debian systems, targetting AWS as a backend**:
 
 - Thanos Sidecar (uploading metrics)
 - Thanos Query (for querying)
@@ -87,7 +87,7 @@ thanos_store_enabled: False
 | `thanos_compactor_enabled` | `false` | Whether the role should install thanos compact. Disabled by default. |
 | `thanos_compactor_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
 | `thanos_compactor_http_port` | `false` | The HTTP port for the thanos compactor cluster metrics. |
-| `thanos_compactor_data_dir` | `false` | The data directory where Thanos compactor will store temporary files. |
+| `thanos_compactor_data_dir` | `true` | The data directory where Thanos compactor will store temporary files. Is necessary when setting up Thanos Compactor, but not so for anything else. |
 | `thanos_compactor_config_file` | `false` | Where the bucket configuration file will sit. Defaults to `/etc/thanos-compactor.yaml`. |
 | `thanos_compactor_retention_raw` | `false` | How long Thanos will keep raw Prometheus metrics. Defaults to `0d`, which means it is disabled. |
 | `thanos_compactor_retention_5m` | `false` | How long Thanos will keep Prometheus metrics with a resolution of 5m. Defaults to `0d`, which means it is disabled. |
@@ -113,7 +113,7 @@ thanos_store_enabled: False
 | `thanos_cluster_peers_addr` | `false` | Either a static list of IPs or a DNS name that will be used find other sidecars |
 | `thanos_prometheus_url` | `false` | The URL that Thanos will use to pull metrics from |
 | `thanos_prometheus_data_dir` | `false` | The data directory that Thanos will upload Prometheus blocks from. |
-| `thanos_s3_bucket_name` | `false` | The name of the S3 bucket that Thanos will upload blocks to. This is **required**. |
-| `thanos_s3_endpoint` | `false` | The endpoint of the S3 bucket. [This is defined in the AWS docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) and is **required**. |
+| `thanos_s3_bucket_name` | `true` | The name of the S3 bucket that Thanos will upload blocks to. This is **required**. |
+| `thanos_s3_endpoint` | `true` | The endpoint of the S3 bucket. [This is defined in the AWS docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) and is **required**. |
 | `thanos_default_retention_period` | `false` | The retention period of objects in the bucket. |
 
