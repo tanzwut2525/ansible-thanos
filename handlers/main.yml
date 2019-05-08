@@ -1,28 +1,38 @@
 ---
 
 - name: restart thanos-sidecar
+  listen: restart thanos
   service:
     name: thanos-sidecar
     state: restarted
+  when: thanos_sidecar_enabled is defined and thanos_sidecar_enabled == True
 
 - name: restart thanos-query
+  listen: restart thanos
   service:
     name: thanos-query
     state: restarted
+  when: thanos_query_enabled is defined and thanos_query_enabled == True
 
 - name: restart thanos-compactor
+  listen: restart thanos
   service:
     name: thanos-compactor
     state: restarted
+  when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
 
 - name: restart thanos-compactor timer
+  listen: restart thanos
   systemd:
     name: thanos-compactor.timer
     daemon-reload: true
     state: restarted
     enabled: true
+  when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
 
 - name: restart thanos-store
+  listen: restart thanos
   service:
     name: thanos-store
     state: restarted
+  when: thanos_store_enabled is defined and thanos_store_enabled == True
