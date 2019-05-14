@@ -1,0 +1,22 @@
+[Unit]
+Description=Continuously downsample metrics in a thanos bucket
+
+[Service]
+Type=simple
+
+User=prometheus
+Group=prometheus
+
+EnvironmentFile=/etc/default/thanos-downsample
+
+Restart=on-failure
+RestartSec=10s
+
+StandardOutput=syslog
+StandardError=syslog
+
+SyslogIdentifier=thanos-downsample
+ExecStart=/usr/bin/thanos downsample $THANOS_DOWNSAMPLE_LOG_LEVEL $THANOS_DOWNSAMPLE_CONFIG_FILE $THANOS_DOWNSAMPLE_DATA_DIR
+
+[Install]
+WantedBy=multi-user.target

@@ -36,3 +36,10 @@
     name: thanos-store
     state: restarted
   when: thanos_store_enabled is defined and thanos_store_enabled == True
+
+- name: restart thanos-downsample
+  listen: restart thanos
+  service:
+    name: thanos-downsample
+    state: restarted
+  when: thanos_downsample_enabled is defined and thanos_downsample_enabled == True

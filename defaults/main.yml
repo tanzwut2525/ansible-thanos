@@ -12,6 +12,10 @@ thanos_compactor_http_port: 19192
 thanos_compactor_data_dir: ""
 thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
 
+thanos_downsample_config_file: "/etc/thanos-downsample.yaml"
+thanos_downsample_data_dir: ""
+thanos_downsample_log_level: "info"
+
 # Setting the following values to '0d' will disable them
 # How long to retain raw samples in the bucket:
 thanos_compactor_retention_raw: "0d"
@@ -50,3 +54,4 @@ thanos_sidecar_enabled: True
 thanos_query_enabled: False
 thanos_compactor_enabled: False
 thanos_store_enabled: False
+thanos_downsample_enabled: False

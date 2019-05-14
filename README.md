@@ -33,6 +33,10 @@ thanos_compactor_http_port: 19192
 thanos_compactor_data_dir: ""
 thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
 
+thanos_downsample_config_file: "/etc/thanos-downsample.yaml"
+thanos_downsample_data_dir: ""
+thanos_downsample_log_level: "info"
+
 # Setting the following values to '0d' will disable them
 # How long to retain raw samples in the bucket:
 thanos_compactor_retention_raw: "0d"
@@ -71,6 +75,7 @@ thanos_sidecar_enabled: True
 thanos_query_enabled: False
 thanos_compactor_enabled: False
 thanos_store_enabled: False
+thanos_downsample_enabled: False
 ```
 
 ## Variable Docs
@@ -92,6 +97,10 @@ thanos_store_enabled: False
 | `thanos_compactor_retention_raw` | `false` | How long Thanos will keep raw Prometheus metrics. Defaults to `0d`, which means it is disabled. |
 | `thanos_compactor_retention_5m` | `false` | How long Thanos will keep Prometheus metrics with a resolution of 5m. Defaults to `0d`, which means it is disabled. |
 | `thanos_compactor_retention_1d` | `false` | How long Thanos will keep Prometheus metrics with a resolution of 1h. Defaults to `0d`, which means it is disabled. |
+| `thanos_downsample_enabled` | `false` | Decides if the role should install thanos downsample. Disabled by default |
+| `thanos_downsample_config_file` | `false` | Where the downsample configuration file should live. |
+| `thanos_downsample_data_dir` | `false` | The data directory that Downsample will store temporary data in. |
+| `thanos_downsample_log_level` | `false` | The logging level thanos downsample will use. Defaults to 'info' |
 | `thanos_query_enabled` | `false` | Whether the role should install thanos query. Disabled by default. |
 | `thanos_query_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
 | `thanos_query_grpc_port` | `false` | The GRPC port for the thanos query cluster to communicate over |
