@@ -18,3 +18,8 @@
 - name: Configure store backend
   include: store.yml
   when: thanos_store_enabled is defined and thanos_store_enabled == True
+
+- name: Configure downsample backend
+  include: downsample.yml
+  when: thanos_downsample_enabled is defined and thanos_downsample_enabled == True
+
