@@ -14,6 +14,7 @@ thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
 
 thanos_downsample_config_file: "/etc/thanos-downsample.yaml"
 thanos_downsample_data_dir: ""
+thanos_downsample_log_level: "info"
 
 # Setting the following values to '0d' will disable them
 # How long to retain raw samples in the bucket:
