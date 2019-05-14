@@ -1,0 +1,29 @@
+---
+- name: "Downsample: Install thanos downsample systemd file"
+  template:
+    src: thanos-downsample.j2
+    dest: /etc/systemd/system/thanos-downsample.service
+  register: downsample_systemd
+  notify: restart thanos-downsample
+
+- name: "Downsample: Reload systemd if thanos downsample changed"
+  systemd:
+    daemon_reload: true
+
+- name: "Downsample: Add defaults file"
+  template:
+    src: thanos-downsample-defaults.j2
+    dest: /etc/default/thanos-downsample
+  notify: restart thanos-downsample
+
+- name: "Downsample: generate configuration file"
+  template:
+    src: thanos-s3-config.j2
+    dest: "{{ thanos_downsample_config_file }}"
+  notify: restart thanos-downsample
+
+- name: "Downsample: Ensure thanos-downsample is started"
+  service:
+    name: thanos-downsample
+    enabled: true
+    state: started
