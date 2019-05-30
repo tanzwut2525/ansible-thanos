@@ -1,3 +1,4 @@
 THANOS_DOWNSAMPLE_CONFIG_FILE="--objstore.config-file {{ thanos_downsample_config_file }}"
 THANOS_DOWNSAMPLE_DATA_DIR="--data-dir {{ thanos_downsample_data_dir }}"
 THANOS_DOWNSAMPLE_LOG_LEVEL="--log.level {{ thanos_downsample_log_level }}"
+THANOS_DOWNSAMPLE_EXTRA_CMD_OPTS={% for opt, opt_value in thanos_downsample_extra_cmd_opts.items() %} --{{ opt }}{% if opt_value %}={{ opt_value }}{% endif %}{% endfor %}

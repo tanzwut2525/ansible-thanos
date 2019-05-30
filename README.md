@@ -27,15 +27,18 @@ thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
 thanos_sidecar_config_file: "/etc/thanos-sidecar.yaml"
 thanos_sidecar_cluster_disabled: False
+thanos_sidecar_extra_cmd_opts: {}
 
 thanos_compactor_log_level: "debug"
 thanos_compactor_http_port: 19192
 thanos_compactor_data_dir: ""
 thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
+thanos_compactor_extra_cmd_opts: {}
 
 thanos_downsample_config_file: "/etc/thanos-downsample.yaml"
 thanos_downsample_data_dir: ""
 thanos_downsample_log_level: "info"
+thanos_downsample_extra_cmd_opts: {}
 
 # Setting the following values to '0d' will disable them
 # How long to retain raw samples in the bucket:
@@ -51,6 +54,7 @@ thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
 thanos_query_cluster_disabled: False
 thanos_query_stores: []
+thanos_query_extra_cmd_opts: {}
 
 thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
@@ -63,6 +67,7 @@ thanos_store_cluster_disabled: False
 # 0 == off
 thanos_store_series_sample_limit: 0
 thanos_store_series_max_concurrency: 20
+thanos_store_extra_cmd_opts: {}
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090
@@ -89,6 +94,7 @@ thanos_downsample_enabled: False
 | `thanos_sidecar_cluster_port` | `false` | The port which the cluster will communicate over. |
 | `thanos_sidecar_config_file` | `false` | Where the bucket configuration file will sit. Defaults to `/etc/thanos-sidecar.yaml`. |
 | `thanos_sidecar_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
+| `thanos_sidecar_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary. |
 | `thanos_compactor_enabled` | `false` | Whether the role should install thanos compact. Disabled by default. |
 | `thanos_compactor_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
 | `thanos_compactor_http_port` | `false` | The HTTP port for the thanos compactor cluster metrics. |
@@ -97,10 +103,12 @@ thanos_downsample_enabled: False
 | `thanos_compactor_retention_raw` | `false` | How long Thanos will keep raw Prometheus metrics. Defaults to `0d`, which means it is disabled. |
 | `thanos_compactor_retention_5m` | `false` | How long Thanos will keep Prometheus metrics with a resolution of 5m. Defaults to `0d`, which means it is disabled. |
 | `thanos_compactor_retention_1d` | `false` | How long Thanos will keep Prometheus metrics with a resolution of 1h. Defaults to `0d`, which means it is disabled. |
+| `thanos_compactor_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended while running Thanos binary |
 | `thanos_downsample_enabled` | `false` | Decides if the role should install thanos downsample. Disabled by default |
 | `thanos_downsample_config_file` | `false` | Where the downsample configuration file should live. |
 | `thanos_downsample_data_dir` | `false` | The data directory that Downsample will store temporary data in. |
 | `thanos_downsample_log_level` | `false` | The logging level thanos downsample will use. Defaults to 'info' |
+| `thanos_downsample_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary |
 | `thanos_query_enabled` | `false` | Whether the role should install thanos query. Disabled by default. |
 | `thanos_query_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
 | `thanos_query_grpc_port` | `false` | The GRPC port for the thanos query cluster to communicate over |
@@ -108,6 +116,7 @@ thanos_downsample_enabled: False
 | `thanos_query_cluster_port` | `false` | The port which the cluster will communicate over |
 | `thanos_query_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
 | `thanos_query_stores` | `false` | List of Thanos store API endpoints used by the Thanos Query component |
+| `thanos_query_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary |
 | `thanos_store_enabled` | `false` | Whether the role should install thanos store. Disabled by default. |
 | `thanos_store_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
 | `thanos_store_grpc_port` | `false` | The GRPC port for the thanos sidecar cluster to communicate over |
@@ -117,8 +126,9 @@ thanos_downsample_enabled: False
 | `thanos_store_chunk_pool_size` | `false` | The maximum size of concurrently allocatable bytes for chunks |
 | `thanos_store_config_file` | `false` | Where the bucket configuration file will sit. Defaults to `/etc/thanos-store.yaml`. |
 | `thanos_store_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
-| `thanos_store_series_sample_limit` | `false` | The limit of how many series samples will be fetched from the store. Defaults to `0`, which means 'disabled', but has a limit of `120`. |
+| `thanos_store_series_sample_limit` | `false` | The limit of how many series samples will be fetched from the store. Defaults to `0`, which means 'disabled'. |
 | `thanos_store_series_max_concurrency` | `false` | The max amount of concurrency for the store. Defaults to `20`. |
+| `thanos_store_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary |
 | `thanos_cluster_peers_addr` | `false` | Either a static list of IPs or a DNS name that will be used find other sidecars |
 | `thanos_prometheus_url` | `false` | The URL that Thanos will use to pull metrics from |
 | `thanos_prometheus_data_dir` | `false` | The data directory that Thanos will upload Prometheus blocks from. |

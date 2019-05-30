@@ -6,15 +6,18 @@ thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
 thanos_sidecar_config_file: "/etc/thanos-sidecar.yaml"
 thanos_sidecar_cluster_disabled: False
+thanos_sidecar_extra_cmd_opts: {}
 
 thanos_compactor_log_level: "debug"
 thanos_compactor_http_port: 19192
 thanos_compactor_data_dir: ""
 thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
+thanos_compactor_extra_cmd_opts: {}
 
 thanos_downsample_config_file: "/etc/thanos-downsample.yaml"
 thanos_downsample_data_dir: ""
 thanos_downsample_log_level: "info"
+thanos_downsample_extra_cmd_opts: {}
 
 # Setting the following values to '0d' will disable them
 # How long to retain raw samples in the bucket:
@@ -30,6 +33,7 @@ thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
 thanos_query_cluster_disabled: False
 thanos_query_stores: []
+thanos_query_extra_cmd_opts: {}
 
 thanos_store_log_level: "debug"
 thanos_store_grpc_port: 19091
@@ -42,6 +46,7 @@ thanos_store_cluster_disabled: False
 # 0 == off
 thanos_store_series_sample_limit: 0
 thanos_store_series_max_concurrency: 20
+thanos_store_extra_cmd_opts: {}
 
 thanos_cluster_peers_addr: ""
 thanos_prometheus_url: http://localhost:9090

@@ -5,3 +5,4 @@ THANOS_COMPACTOR_DATA_DIR="--data-dir {{ thanos_compactor_data_dir }}"
 THANOS_COMPACTOR_RETENTION_RAW="--retention.resolution-raw {{ thanos_compactor_retention_raw }}"
 THANOS_COMPACTOR_RETENTION_FIVE_MINUTES="--retention.resolution-5m {{ thanos_compactor_retention_5m }}"
 THANOS_COMPACTOR_RETENTION_ONE_HOUR="--retention.resolution-1h {{ thanos_compactor_retention_1h }}"
+THANOS_COMPACTOR_EXTRA_CMD_OPTS={% for opt, opt_value in thanos_compactor_extra_cmd_opts.items() %} --{{ opt }}{% if opt_value %}={{ opt_value }}{% endif %}{% endfor %}
