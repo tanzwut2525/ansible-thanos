@@ -21,15 +21,6 @@
     state: restarted
   when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
 
-- name: restart thanos-compactor timer
-  listen: restart thanos
-  systemd:
-    name: thanos-compactor.timer
-    daemon-reload: true
-    state: restarted
-    enabled: true
-  when: thanos_compactor_enabled is defined and thanos_compactor_enabled == True
-
 - name: restart thanos-store
   listen: restart thanos
   service:
