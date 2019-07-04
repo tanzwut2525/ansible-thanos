@@ -21,3 +21,27 @@
     name: thanos-query
     enabled: true
     state: started
+
+- name: "Check if node exporter directory exists"
+  stat:
+    path: /etc/prometheus-node-exporter
+  register: node_exporter
+
+- name: "Add node exporter files"
+  when: node_exporter.stat.exists is defined and node_exporter.stat.exists
+  block:
+    - set_fact: service_name="thanos-query"
+
+    - name: "Add the node exporter file to path"
+      template:
+        src: node-exporter.sh.j2
+        dest: /usr/local/bin/prometheus-service-restart.sh
+        owner: root
+        group: root
+        mode: 0775
+
+    - name: "Set up cronjob for node exporter"
+      cron:
+        name: "Run systemd restart count"
+        minute: "*/1"
+        job: "/usr/local/bin/prometheus-service-restart.sh"

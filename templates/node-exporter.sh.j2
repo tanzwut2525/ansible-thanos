@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SERVICE="{{ service_name }}"
+
+RESTARTS="$(systemctl show "${SERVICE}" -p NRestarts | cut -d '=' -f2)"
+
+if [ -z "${RESTARTS}" ];
+then
+        RESTARTS="0"
+fi
+
+echo service_restarts\{service\=\"$SERVICE\"\} $RESTARTS > /etc/prometheus-node-exporter/{{ service_name }}.prom
+chmod 644 /etc/prometheus-node-exporter/{{ service_name }}.prom
