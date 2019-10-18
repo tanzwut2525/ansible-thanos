@@ -54,6 +54,7 @@ thanos_prometheus_data_dir: /etc/prometheus/data
 thanos_s3_bucket_name: ""
 thanos_s3_endpoint: ""
 thanos_default_retention_period: "90d"
+thanos_package_version: "latest"
 
 thanos_sidecar_enabled: True
 thanos_query_enabled: False

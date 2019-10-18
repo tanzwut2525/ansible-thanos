@@ -2,8 +2,8 @@
 
 - name: Install thanos from repo
   apt:
-    name: thanos
-    state: latest
+    name: "thanos{{ '' if thanos_package_version == 'latest' else '=' + thanos_package_version }}"
+    state: "{{ 'latest' if thanos_package_version == 'latest' else 'present' }}"
     cache_valid_time: 3600
   notify: restart thanos
 

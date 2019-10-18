@@ -75,6 +75,7 @@ thanos_prometheus_data_dir: /etc/prometheus/data
 thanos_s3_bucket_name: ""
 thanos_s3_endpoint: ""
 thanos_default_retention_period: "90d"
+thanos_package_version: "latest"
 
 thanos_sidecar_enabled: True
 thanos_query_enabled: False
@@ -135,4 +136,5 @@ thanos_downsample_enabled: False
 | `thanos_s3_bucket_name` | `true` | The name of the S3 bucket that Thanos will upload blocks to. This is **required**. |
 | `thanos_s3_endpoint` | `true` | The endpoint of the S3 bucket. [This is defined in the AWS docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) and is **required**. |
 | `thanos_default_retention_period` | `false` | The retention period of objects in the bucket. |
+| `thanos_package_version` | `false` | Version of Thanos APT package. Special value 'latest' will install latest version from available repo. |
 
