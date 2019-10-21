@@ -2,14 +2,14 @@
 
 ![image](https://user-images.githubusercontent.com/1196058/44577196-5cda4780-a788-11e8-956c-b045aa5f6ee5.png)
 
-[Thanos is a highly-available metrics system](https://github.com/improbable-eng/thanos) that touts 'unlimited' storage capacity. This role is able to configure the following components on **Debian systems, targetting AWS as a backend**:
+[Thanos is a highly-available metrics system](https://github.com/thanos-io/thanos) that touts 'unlimited' storage capacity. This role is able to configure the following components on **Debian systems, targetting AWS as a backend**:
 
 - Thanos Sidecar (uploading metrics)
 - Thanos Query (for querying)
 - Thanos Store (for S3/etc)
 - Thanos Compact (for compaction)
 
-The role also has the requirement that you **create a debian package** for [Thanos](https://github.com/improbable-eng/thanos). This is not going to change and is not in the scope of this repo. If you don't have a system for this, we recommend [FPM](https://github.com/jordansissel/fpm/) for getting something simple up and running quickly.
+The role also has the requirement that you **create a debian package** for [Thanos](https://github.com/thanos-io/thanos). This is not going to change and is not in the scope of this repo. If you don't have a system for this, we recommend [FPM](https://github.com/jordansissel/fpm/) for getting something simple up and running quickly.
 
 In future we will implement the following Thanos components:
 
