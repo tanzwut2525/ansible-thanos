@@ -7,6 +7,9 @@
     cache_valid_time: 3600
   notify: restart thanos
 
+- name: Mark Thanos package to HOLD
+  command: "apt-mark hold thanos"
+
 # Configure the query backend, systemd files, etc
 - name: validate that required variables are set
   assert:
