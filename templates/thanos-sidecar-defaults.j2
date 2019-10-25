@@ -12,6 +12,7 @@ THANOS_SIDECAR_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_sidecar_grpc_port 
 THANOS_SIDECAR_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_sidecar_http_port }}"
 {% endif %}
 
+{% if thanos_sidecar_gossip_flags_enabled is defined and thanos_sidecar_gossip_flags_enabled == True %}
 {% if thanos_sidecar_cluster_disabled is defined and thanos_sidecar_cluster_disabled == True %}
 
 THANOS_SIDECAR_CLUSTER_DISABLED="--cluster.disable"
@@ -25,6 +26,7 @@ THANOS_SIDECAR_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_sidecar_clus
 THANOS_SIDECAR_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
+{% endif %}
 {% endif %}
 
 {% if thanos_prometheus_template_file is defined and thanos_prometheus_envsubst_file is defined and thanos_prometheus_rule_dir is defined %}

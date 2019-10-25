@@ -9,6 +9,7 @@ THANOS_STORE_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_store_grpc_port }}"
 THANOS_STORE_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_store_http_port }}"
 {% endif %}
 
+{% if thanos_store_gossip_flags_enabled is defined and thanos_store_gossip_flags_enabled == True %}
 {% if thanos_store_cluster_disabled is defined and thanos_store_cluster_disabled == True %}
 
 THANOS_STORE_CLUSTER_DISABLED="--cluster.disable"
@@ -22,6 +23,7 @@ THANOS_STORE_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_store_cluster_
 THANOS_STORE_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
+{% endif %}
 {% endif %}
 
 THANOS_STORE_ADDITIONAL_CONFIGS="--index-cache-size {{ thanos_store_index_cache_size }} --chunk-pool-size {{ thanos_store_chunk_pool_size }}"

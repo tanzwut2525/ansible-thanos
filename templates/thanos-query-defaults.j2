@@ -7,6 +7,8 @@ THANOS_QUERY_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_query_grpc_port }}"
 THANOS_QUERY_CLUSTER_HTTP="--http-address 0.0.0.0:{{ thanos_query_http_port }}"
 {% endif %}
 
+
+{% if thanos_query_gossip_flags_enabled is defined and thanos_query_gossip_flags_enabled == True %}
 {% if thanos_query_cluster_disabled is defined and thanos_query_cluster_disabled == True %}
 
 THANOS_QUERY_CLUSTER_DISABLED="--cluster.disable"
@@ -20,6 +22,7 @@ THANOS_QUERY_CLUSTER_ADDRESS="--cluster.address 0.0.0.0:{{ thanos_query_cluster_
 THANOS_QUERY_CLUSTER_PEERS="--cluster.peers {{ thanos_cluster_peers_addr }}"
 {% endif %}
 
+{% endif %}
 {% endif %}
 
 {% if thanos_query_replica_label is defined %}

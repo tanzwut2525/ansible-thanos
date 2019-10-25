@@ -27,6 +27,7 @@ thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
 thanos_sidecar_config_file: "/etc/thanos-sidecar.yaml"
 thanos_sidecar_cluster_disabled: False
+thanos_sidecar_gossip_flags_enabled: True
 thanos_sidecar_extra_cmd_opts: {}
 
 thanos_compactor_log_level: "debug"
@@ -53,6 +54,8 @@ thanos_query_grpc_port: 19091
 thanos_query_http_port: 19193
 thanos_query_cluster_port: 19391
 thanos_query_cluster_disabled: False
+thanos_query_gossip_flags_enabled: True
+
 thanos_query_stores: []
 thanos_query_extra_cmd_opts: {}
 
@@ -64,6 +67,7 @@ thanos_store_index_cache_size: "250MB"
 thanos_store_chunk_pool_size: "2GB"
 thanos_store_config_file: "/etc/thanos-store.yaml"
 thanos_store_cluster_disabled: False
+thanos_store_gossip_flags_enabled: True
 # 0 == off
 thanos_store_series_sample_limit: 0
 thanos_store_series_max_concurrency: 20
@@ -95,6 +99,7 @@ thanos_downsample_enabled: False
 | `thanos_sidecar_cluster_port` | `false` | The port which the cluster will communicate over. |
 | `thanos_sidecar_config_file` | `false` | Where the bucket configuration file will sit. Defaults to `/etc/thanos-sidecar.yaml`. |
 | `thanos_sidecar_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
+| `thanos_sidecar_gossip_flags_enabled` | `false` | Allows to disable setting gossip related command line flags, as newer versions of Thanos don't support them. |
 | `thanos_sidecar_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary. |
 | `thanos_compactor_enabled` | `false` | Whether the role should install thanos compact. Disabled by default. |
 | `thanos_compactor_log_level` | `false` | The log level that Thanos will run. Set to 'debug' by default. |
@@ -116,6 +121,7 @@ thanos_downsample_enabled: False
 | `thanos_query_http_port` | `false` | The HTTP port for the thanos query cluster metrics |
 | `thanos_query_cluster_port` | `false` | The port which the cluster will communicate over |
 | `thanos_query_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
+| `thanos_query_gossip_flags_enabled` | `false` | Allows to disable setting gossip related command line flags, as newer versions of Thanos don't support them. |
 | `thanos_query_stores` | `false` | List of Thanos store API endpoints used by the Thanos Query component |
 | `thanos_query_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary |
 | `thanos_store_enabled` | `false` | Whether the role should install thanos store. Disabled by default. |
@@ -127,6 +133,7 @@ thanos_downsample_enabled: False
 | `thanos_store_chunk_pool_size` | `false` | The maximum size of concurrently allocatable bytes for chunks |
 | `thanos_store_config_file` | `false` | Where the bucket configuration file will sit. Defaults to `/etc/thanos-store.yaml`. |
 | `thanos_store_cluster_disabled` | `false` | Disables Gossip cluster. `thanos_query_cluster_port` and `thanos_cluster_peers_addr` will be ignored if set to `True`. |
+| `thanos_store_gossip_flags_enabled` | `false` | Allows to disable setting gossip related command line flags, as newer versions of Thanos don't support them. |
 | `thanos_store_series_sample_limit` | `false` | The limit of how many series samples will be fetched from the store. Defaults to `0`, which means 'disabled'. |
 | `thanos_store_series_max_concurrency` | `false` | The max amount of concurrency for the store. Defaults to `20`. |
 | `thanos_store_extra_cmd_opts` | `false` | Extra command line options key value map. This will just be appended when running Thanos binary |
