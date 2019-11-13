@@ -23,6 +23,14 @@
     dest: "{{ thanos_store_config_file }}"
   notify: restart thanos-store
 
+- name: "Store: generate tracing configuration file"
+  copy:
+    group: prometheus
+    content: "{{ thanos_store_tracing_config }}"
+    dest: "{{ thanos_store_tracing_config_file }}"
+  when: thanos_store_tracing_config_file is defined
+  notify: restart thanos-store
+
 - name: "Store: Ensure thanos-store is started"
   service:
     name: thanos-store

@@ -23,6 +23,14 @@
     dest: "{{ thanos_compactor_config_file }}"
   notify: restart thanos-compactor
 
+- name: "Compactor: generate tracing configuration file"
+  copy:
+    group: prometheus
+    content: "{{ thanos_compactor_tracing_config }}"
+    dest: "{{ thanos_compactor_tracing_config_file }}"
+  when: thanos_compactor_tracing_config_file is defined
+  notify: restart thanos-compactor
+
 - name: "Compactor: Ensure thanos-compactor is started"
   service:
     name: thanos-compactor

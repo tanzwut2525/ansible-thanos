@@ -1,4 +1,7 @@
 THANOS_QUERY_LOGGING="--log.level {{ thanos_query_log_level }}"
+{% if thanos_query_tracing_config_file is defined %}
+THANOS_QUERY_TRACING_CONFIG_FILE="--tracing.config-file={{ thanos_query_tracing_config_file }}"
+{% endif %}
 
 {% if thanos_query_grpc_port is defined %}
 THANOS_QUERY_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_query_grpc_port }}"

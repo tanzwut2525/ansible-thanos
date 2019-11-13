@@ -22,6 +22,14 @@
     enabled: true
     state: started
 
+- name: "Query: generate tracing configuration file"
+  copy:
+    group: prometheus
+    content: "{{ thanos_query_tracing_config }}"
+    dest: "{{ thanos_query_tracing_config_file }}"
+  when: thanos_query_tracing_config_file is defined
+  notify: restart thanos-query
+
 - name: "Check if node exporter directory exists"
   stat:
     path: /etc/prometheus-node-exporter

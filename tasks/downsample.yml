@@ -23,6 +23,14 @@
     dest: "{{ thanos_downsample_config_file }}"
   notify: restart thanos-downsample
 
+- name: "Downsample: generate tracing configuration file"
+  copy:
+    group: prometheus
+    content: "{{ thanos_downsample_tracing_config }}"
+    dest: "{{ thanos_downsample_tracing_config_file }}"
+  when: thanos_downsample_tracing_config_file is defined
+  notify: restart thanos-downsample
+
 - name: "Downsample: Ensure thanos-downsample is started"
   service:
     name: thanos-downsample
