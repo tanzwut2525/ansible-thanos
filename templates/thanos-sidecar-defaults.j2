@@ -6,7 +6,7 @@ THANOS_SIDECAR_CONFIG_FILE="--objstore.config-file {{ thanos_sidecar_config_file
 THANOS_SIDECAR_TRACING_CONFIG_FILE="--tracing.config-file={{ thanos_sidecar_tracing_config_file }}"
 {% endif %}
 
-PROMETHEUS_HOSTNAME="prometheus-{{ inventory_hostname }}"
+PROMETHEUS_HOSTNAME="prometheus-{{ prometheus_hostname_suffix }}"
 
 {% if thanos_sidecar_grpc_port is defined %}
 THANOS_SIDECAR_CLUSTER_GRPC="--grpc-address 0.0.0.0:{{ thanos_sidecar_grpc_port }}"

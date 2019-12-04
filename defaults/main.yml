@@ -1,4 +1,5 @@
 ---
+prometheus_hostname_suffix: "{{ inventory_hostname }}"
 
 thanos_sidecar_log_level: "debug"
 thanos_sidecar_grpc_port: 19091
